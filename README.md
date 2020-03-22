@@ -2,6 +2,8 @@
 
 * [Wiki](https://github.com/nathanlatino/YAARTS/wiki)
 
+Pour faciliter le développement et depuis que Unity propose la version pro gratuitement aux étudiants, il a été fait le choix d'utiliser Unity Collab: le git intégré de la version pro Unity. Pour faciliter la vie des professeurs, une copie du dossier "Scripts" du projet sera push chaque semaine sur ce repo.
+
 ## Développeurs
 
 * Nathan Latino
