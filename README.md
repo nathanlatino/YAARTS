@@ -26,7 +26,9 @@ Depuis l'introduction à Unity, de nombreux petits prototypes de mécanismes ont
 
 ## Technologies
 
-Le projet utilise le nouvel Universal Render Pipline (URP). Il permet une utilisation plus flexible et aisée du postprocessing ainsi qu'un gain de performance dans de nombreuses situations.
+* Le projet utilise le nouvel Universal Render Pipline (URP). Il permet une utilisation plus flexible et aisée du postprocessing ainsi qu'un gain de performance dans de nombreuses situations.
+
+* La collaboration se fait avec Unity Collab, service offert dans la version pro d'unity (gratuite depuis le mois de février pour les étudiants).
 
 ## Assets utilisés
 
