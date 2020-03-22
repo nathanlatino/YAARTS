@@ -1,5 +1,7 @@
 # YAARTS
 
+* [Wiki](https://github.com/nathanlatino/YAARTS/wiki)
+
 ## Développeurs
 
 * Nathan Latino
@@ -11,42 +13,6 @@
 YAARTS: Yet Again Another Real Time Strategy (Game). Ce projet est une tentative d'aller le plus loin possible dans le développement d'un jeu de stratégie en temps réel (Dune 2, Command & Conqueres, Warcraft, Starcraft, ...). Le style visuel visé est Lowpoly/Cartoon.
 
 Le projet est partagé entre les cours d'infographie et de .NET. La partie infographie se concentre sur la partie visuelle ainsi que l'utilisation du moteur Uity 3D et la partie .NET sur la qualité du code C#.
-
-## Cahier des charges
-
-### MVP
-
-* Une carte ("plateau de jeu") sur lequel se passe l'action (prototype)
-* Deux factions symétriques
-* Entités:
-    * Batiments de production
-    * Unités de production/récolte
-    * Unités offensives
-* IA des entités:
-    * Pathfinding
-    * Collision avoidance (gestion des obstacles mobiles dans le pathfinding)
-    * Etats: Idle, moving, engaging, engaged, dead en fonction du contexte
-    * Gestion de la ligne de vue et de la portée
-* Mecanisme de selection des entités (simple et multiple)
-* Gestion des ressources
-* Brouillard de guère
-* GUI (prototype)
-    * Menu principale
-    * Une interface utilisateur qui contient les éléments suivants:
-        * Une mini carte
-        * Affichage des ressources
-        * Affichage de la population
-        * Panneau de selection
-        * Panneau des actions de la selection
-        * Curseur intelligent dont la forme dépend du contexte
-
-### Si le temps le permet
-
-* IA qui joue l'adversaire
-* Diversifications des cartes de jeu
-* Génération procédurale de cartes
-* Éléments de gameplay (technoogies, amélioration des unités, variété dans les unités)
-* GUI moins prototype
 
 ## Base de travail
 
