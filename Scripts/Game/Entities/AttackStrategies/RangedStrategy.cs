@@ -23,7 +23,7 @@ namespace System
 
         public void AttackCallback() {
             var arrow = EntityFactory.Instance.CreateArrow().GetComponent<Rigidbody>();
-            arrow.GetComponent<Arrow>().Entity = Entity;
+            arrow.GetComponent<Arrow>().Owner = Entity;
             arrow.position = Spawn.position;
             var origin = Spawn.position;
             var target = Entity.Engaging.Target.Position;

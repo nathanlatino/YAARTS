@@ -96,6 +96,8 @@ public class Debuging : MonoBehaviour
     }
 
     private void DebugFunctions(Entity entity) {
+        if (entity.Meta.Type != "Character") return;
+
         if (LineOfSight) DebugTools.DrawLineOfSight(entity);
         if (Range) DebugTools.DrawRange(entity);
         if (AggroList) DebugTools.DrawAggroList(entity);

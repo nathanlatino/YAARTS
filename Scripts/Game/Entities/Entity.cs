@@ -47,8 +47,9 @@ public class Entity : MonoBehaviour, IEntity
     private void Update() {
         State?.Update();
         if (Destroyed) return;
-        Movable.DrawDestination();
-        Engaging.DrawTarget();
+
+        Movable?.DrawDestination();
+        Engaging?.DrawTarget();
     }
 
     /*------------------------------------------------------------------*\

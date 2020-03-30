@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public Entity Entity;
+    public Entity Owner;
     private Rigidbody rb;
     private float delayBeforeDelete = 5f;
     private bool isImpact;
+    private int OwnerLayer;
+    private int ProjectileLayer;
 
 
-    void Start() {
+    private void Start() {
         rb = GetComponent<Rigidbody>();
-        var source = LayerMask.NameToLayer("Projectile");
-        var ignore = LayerMask.NameToLayer(Entity.Owner.IsCPU ? "CPU" : "Player");
-        Physics.IgnoreLayerCollision(source, source);
-        Physics.IgnoreLayerCollision(source, ignore);
+        OwnerLayer = Owner.gameObject.layer;
+        ProjectileLayer = LayerMask.NameToLayer("Projectile");
     }
 
     private void FixedUpdate() {
@@ -23,8 +23,10 @@ public class Arrow : MonoBehaviour
         transform.rotation *= Quaternion.Euler(270, 0, 0);
     }
 
+
     protected void OnTriggerEnter(Collider other) {
-        if (other == Entity.GetComponent<Collider>()) return;
+        var otherLayer = other.gameObject.layer;
+        if (otherLayer == OwnerLayer || otherLayer == ProjectileLayer) return;
         Hit(other);
         delayBeforeDelete = 5f;
     }
@@ -35,9 +37,9 @@ public class Arrow : MonoBehaviour
         Entity otherEntity = other.GetComponent<Entity>();
 
         if (!isImpact && otherEntity != null) {
-            if (otherEntity.Owner.IsCPU != Entity.Owner.IsCPU) {
+            if (otherEntity.Owner.IsCPU != Owner.Owner.IsCPU) {
                 delayBeforeDelete = 1f;
-                other.GetComponent<Entity>().Health.Hit(Entity.Engaging.Damages);
+                other.GetComponent<Entity>().Health.Hit(Owner.Engaging.Damages);
             }
         }
         isImpact = true;

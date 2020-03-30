@@ -71,6 +71,8 @@ public class GUIActionPanel : MonoBehaviour
     }
 
     private void DynamicContent(Entity entity) {
+        if (entity.Meta.Type != "Character") return;
+
         string target, inRange, targetAlive;
 
         var destination = entity.Movable.Destination != null

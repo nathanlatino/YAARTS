@@ -15,7 +15,7 @@ public class Scenarios : MonoBehaviour
     public int MassSize = 49;
     public bool Archer;
 
-    public enum ScenarioTypes { None, Basic, Mass, MassTwoTeams };
+    public enum ScenarioTypes { None, Basic, Eco, Mass, MassTwoTeams };
 
     public ScenarioTypes OldScenario { get; set; }
 
@@ -55,6 +55,9 @@ public class Scenarios : MonoBehaviour
             case ScenarioTypes.Basic:
                 if (Archer) SetBasicArcher();
                 else SetBasic();
+                break;
+            case ScenarioTypes.Eco:
+                SetEco();
                 break;
             case ScenarioTypes.Mass:
                 SetMassOneTeam();
@@ -98,10 +101,27 @@ public class Scenarios : MonoBehaviour
         OldScenario = ScenarioTypes.Basic;
 
         Selection.Instance.Selectables = new HashSet<Entity>() {
+                // factory.CreateKnight(new Vector3(8.3f, 0f, -20f), Rotation()),
+                // factory.CreateArcher(new Vector3(-1.3f, 0f, -0.5f), Rotation()),
+                // factory.CreateKnight(new Vector3(1.2f, 0f, 16.5f), Rotation()),
+                // factory.CreateKnight(new Vector3(16f, 0f, 2.4f), Rotation(), true)
+
                 factory.CreateKnight(new Vector3(8.3f, 0f, -20f), Rotation()),
                 factory.CreateArcher(new Vector3(-1.3f, 0f, -0.5f), Rotation()),
                 factory.CreateKnight(new Vector3(1.2f, 0f, 16.5f), Rotation()),
-                factory.CreateKnight(new Vector3(16f, 0f, 2.4f), Rotation(), true)
+                factory.CreateArcher(new Vector3(16f, 0f, 2.4f), Rotation(), true)
+        };
+    }
+
+    private void SetEco() {
+        OldScenario = ScenarioTypes.Eco;
+
+        Selection.Instance.Selectables = new HashSet<Entity>() {
+                factory.CreateWorker(new Vector3(0.45f, 0f, -1.55f), Rotation()),
+                factory.CreateWorker(new Vector3(-1.3f, 0f, 1.5f), Rotation()),
+                factory.CreateWorker(new Vector3(-2f, 0f, 5.5f), Rotation()),
+
+                factory.CreateGold(new Vector3(5f, 0f, 5f), Rotation()),
         };
     }
 

@@ -35,8 +35,11 @@ public class HealthComponent
         Health -= value;
         Percent = 100 * (Health / Total);
         healthBar.SetHealth(Health);
-        Entity.Animation.SetDamagesAnimation();
-        Bleed();
+        Entity.Animation?.SetDamagesAnimation();
+
+        if (Entity.Meta.Type == "Character") {
+            Bleed();
+        }
     }
 
     public void Kill() {

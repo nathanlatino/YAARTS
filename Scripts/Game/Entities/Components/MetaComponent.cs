@@ -4,24 +4,28 @@ public class MetaComponent
 {
     private readonly Entity Entity;
 
+    public readonly Color Color;
+    public readonly Texture2D Portrait;
 
-    public readonly Texture2D portrait;
-    public readonly Color color;
-    public readonly string className;
-    public readonly string playerType;
+    public readonly string Type; // Todo: Use enum !
+    public readonly string ClassName; // Todo: Use enum !
+    public readonly string PlayerType; // Todo: Use enum !
 
-    public MetaComponent(Entity entity, string className, string portraitPath) {
+    public MetaComponent(Entity entity, string className, string type, Texture2D portrait) {
         Entity = entity;
-        this.className = className;
-        this.portrait = Resources.Load(portraitPath, typeof(Texture2D)) as Texture2D;
+        Type = type;
+        ClassName = className;
+        Portrait = portrait;
 
-        if (Entity.Owner.IsCPU) {
-            this.playerType = "CPU";
-            this.color = Color.red;
-        }
-        else {
-            this.playerType = "Player";
-            this.color = Color.blue;
+        if (Entity.Owner != null) {
+            if (Entity.Owner.IsCPU) {
+                this.PlayerType = "CPU";
+                this.Color = Color.red;
+            }
+            else {
+                this.PlayerType = "Player";
+                this.Color = Color.blue;
+            }
         }
     }
 }
